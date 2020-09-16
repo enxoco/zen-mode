@@ -12,6 +12,8 @@ arguments = remote.getGlobal('sharedObject').prop1;
 let timer = (arguments[arguments.length - 1] * 1000)
 document.getElementById("url-list").innerHTML = (timer / 1000) + ' seconds'
 var currentTime = timer
+var msgDiv = document.getElementById('message')
+var zSettings = document.getElementById('zSettings')
 Number.prototype.toHHMMSS = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
     var hours   = Math.floor(sec_num / 3600);
@@ -23,9 +25,27 @@ Number.prototype.toHHMMSS = function () {
     if (seconds < 10) {seconds = "0"+seconds;}
     return hours + ':' + minutes + ':' + seconds;
 }
-setInterval(function(){
-    currentTime -= 1000
-    document.getElementById("url-list").innerHTML = (currentTime / 1000).toHHMMSS()
+if (timer) {
+    zSettings.style.display = 'none'
+    setInterval(function(){
+        currentTime -= 1000
+        document.getElementById("url-list").innerHTML = (currentTime / 1000).toHHMMSS()
+    
+    },1000)
+    setTimeout(function(){ipcRenderer.send('quit')}, timer)
+} else {
+    msgDiv.style.display = 'none'
+}
 
-},1000)
-setTimeout(function(){ipcRenderer.send('quit')}, timer)
+document.getElementById('zActivate').addEventListener('click', function(){
+    msgDiv.style.display = 'block'
+    timer = Number(document.getElementById('zTimer').value) * 60000
+    currentTime = timer
+    document.getElementById('zSettings').style.display = 'none'
+    setInterval(function(){
+        currentTime -= 1000
+        document.getElementById("url-list").innerHTML = (currentTime / 1000).toHHMMSS()
+    
+    },1000)
+    setTimeout(function(){ipcRenderer.send('quit')}, timer)
+})

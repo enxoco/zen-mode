@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder --win=portable",
+    "port": "electron-builder -p --win"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -21,5 +22,19 @@
   "devDependencies": {
     "electron": "^9.1.0",
     "electron-builder": "^22.7.0"
-  }
+  },
+  "build": {
+    "productName": "Zen Mode",
+    "appId": "pluckeye.ZenMode",
+    "directories": {
+      "buildResources": "./build"
+    },
+    "win": {
+        "target": ["portable"],
+        "icon": "./build/logo.ico"
+    },
+    "portable": {
+        "artifactName": "zen-mode.exe"
+    }
+}
 }

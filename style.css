@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Lato Black';
+  src: url('./fonts/Lato-BlackItalic.ttf');
+}
+@font-face {
+  font-family: 'Lato Bold';
+  src: url('./fonts/Lato-Bold.ttf');
+}
+
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -29,3 +40,40 @@
     align-items: center;
     justify-content: space-between;
   }
+  h1, h2, h3 {
+    font-family: 'Lato Black';
+    text-align: center;
+  }
+  h4 {
+    font-family: 'Lato Bold';
+    text-align: center;
+  }
+  h3 {
+    font-size: 48px;
+  }
+  h4 {
+    font-size: 32px;
+  }
+  input#zTimer {
+    background: #eee;
+    border: 5px solid white;
+    padding: 20px 50px;
+    width: 50vw;
+    text-align: center;
+    font-size: 48px;
+    outline: none;
+}
+a.button.button-allow {
+  border: 2px solid #09476b;
+  padding: 25px 50px;
+  margin-top: 25px;
+  color: #09476b;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  width: 150px;
+  left: 33%;
+  font-family: 'Lato Black';
+  font-size: 32px;
+  border-radius: 10px;
+}

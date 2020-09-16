@@ -15,8 +15,8 @@ function createWindow () {
     kiosk: true,
     frame: false,
     focusable: false,
-    alwaysOnTop: true,
-    fullscreen: true,
+    alwaysOnTop: false,
+    fullscreen: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true

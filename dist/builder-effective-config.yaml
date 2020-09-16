@@ -1,4 +1,12 @@
 directories:
   output: dist
-  buildResources: build
+  buildResources: ./build
+productName: Zen Mode
+appId: pluckeye.ZenMode
+win:
+  target:
+    - portable
+  icon: ./build/logo.ico
+portable:
+  artifactName: zen-mode.exe
 electronVersion: 9.1.0
